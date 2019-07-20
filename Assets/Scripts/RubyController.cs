@@ -12,6 +12,8 @@ public class RubyController : MonoBehaviour
     [Tooltip("The window of time when the player is invincible after taking damage")]
     public float timeInvincible = 2.0f;
 
+    public GameObject projectilePrefab;
+
     private int _currentHealth;
     private bool _isInvincible;
     private float _invincibleTimer;
@@ -41,6 +43,11 @@ public class RubyController : MonoBehaviour
             {
                 _isInvincible = false;
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            Launch();
         }
     }
 
@@ -84,5 +91,15 @@ public class RubyController : MonoBehaviour
         _currentHealth = Mathf.Clamp(_currentHealth + amount, 0, maxHealth);
         _animator.SetTrigger("Hit");
         Debug.Log(_currentHealth + "/" + maxHealth);
+    }
+
+    private void Launch()
+    {
+        GameObject projectileObject = Instantiate(projectilePrefab, _rigidbody2D.position + Vector2.up * 0.5f, Quaternion.identity);
+
+        Projectile projectile = projectileObject.GetComponent<Projectile>();
+        projectile.Launch(_lookDirection, 300);
+        
+        _animator.SetTrigger("Launch");
     }
 }
