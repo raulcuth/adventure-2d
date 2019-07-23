@@ -13,6 +13,7 @@ public class EnemyController : MonoBehaviour
     private Animator _animator;
     private static readonly int MoveXProperty = Animator.StringToHash("Move X");
     private static readonly int MoveYProperty = Animator.StringToHash("Move Y");
+    private bool _broken;
 
     private void Start()
     {
@@ -23,6 +24,11 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
+        if (!_broken)
+        {
+            return;
+        }
+
         _timer -= Time.deltaTime;
         if (_timer < 0)
         {
@@ -55,5 +61,11 @@ public class EnemyController : MonoBehaviour
         {
             player.ChangeHealth(-damageAmount);
         }
+    }
+
+    public void Fix()
+    {
+        _broken = false;
+        _rigidbody2D.simulated = false;
     }
 }
