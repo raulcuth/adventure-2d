@@ -14,7 +14,7 @@ public class Projectile : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (transform.position.magnitude > 1000.0f)
         {
@@ -27,7 +27,7 @@ public class Projectile : MonoBehaviour
         _rigidbody2D.AddForce(direction * force);
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
         EnemyController e = other.collider.GetComponent<EnemyController>();
         if (e != null)

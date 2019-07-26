@@ -13,7 +13,7 @@ public class EnemyController : MonoBehaviour
     private Animator _animator;
     private static readonly int MoveXProperty = Animator.StringToHash("Move X");
     private static readonly int MoveYProperty = Animator.StringToHash("Move Y");
-    private bool _broken;
+    private bool _broken = true;
 
     private void Start()
     {
@@ -67,5 +67,6 @@ public class EnemyController : MonoBehaviour
     {
         _broken = false;
         _rigidbody2D.simulated = false;
+        _animator.SetTrigger("Fixed");
     }
 }
