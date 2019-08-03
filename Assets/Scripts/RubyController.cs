@@ -90,16 +90,17 @@ public class RubyController : MonoBehaviour
 
         _currentHealth = Mathf.Clamp(_currentHealth + amount, 0, maxHealth);
         _animator.SetTrigger("Hit");
-        Debug.Log(_currentHealth + "/" + maxHealth);
+        UIHealthBar.instance.SetValue(_currentHealth / (float) maxHealth);
     }
 
     private void Launch()
     {
-        GameObject projectileObject = Instantiate(projectilePrefab, _rigidbody2D.position + Vector2.up * 0.5f, Quaternion.identity);
+        GameObject projectileObject =
+            Instantiate(projectilePrefab, _rigidbody2D.position + Vector2.up * 0.5f, Quaternion.identity);
 
         Projectile projectile = projectileObject.GetComponent<Projectile>();
         projectile.Launch(_lookDirection, 300);
-        
+
         _animator.SetTrigger("Launch");
     }
 }
