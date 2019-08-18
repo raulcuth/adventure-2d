@@ -7,7 +7,9 @@ public class NonPlayerCharacter : MonoBehaviour
     public float displayTime = 4.0f;
 
     public GameObject dialogBox;
-
+    public Quest quest;
+    public RubyController player;
+    
     private float _timerDisplay;
     
     // Start is called before the first frame update
@@ -34,5 +36,12 @@ public class NonPlayerCharacter : MonoBehaviour
     {
         _timerDisplay = displayTime;
         dialogBox.SetActive(true);
+        AcceptQuest();
+    }
+
+    public void AcceptQuest()
+    {
+        quest.isActive = true;
+        player.quest = quest;
     }
 }
