@@ -15,6 +15,7 @@ public class RubyController : MonoBehaviour
     public GameObject projectilePrefab;
     public AudioClip throwSound;
     public AudioClip hitSound;
+    public Quest quest;
 
     private int _currentHealth;
     private bool _isInvincible;

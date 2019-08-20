@@ -5496,5 +5496,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5743991217240646970, guid: 3018c9fad9d78384683992cd114dae9e,
+        type: 3}
+      propertyPath: quest.title
+      value: Meatbug Ragout
+      objectReference: {fileID: 0}
+    - target: {fileID: 5743991217240646970, guid: 3018c9fad9d78384683992cd114dae9e,
+        type: 3}
+      propertyPath: quest.description
+      value: Get 8 hell mushrooms.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5743991217240646970, guid: 3018c9fad9d78384683992cd114dae9e,
+        type: 3}
+      propertyPath: quest.questReward.experienceReward
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5743991217240646970, guid: 3018c9fad9d78384683992cd114dae9e,
+        type: 3}
+      propertyPath: quest.questReward.goldReward
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3018c9fad9d78384683992cd114dae9e, type: 3}
